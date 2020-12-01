@@ -12,11 +12,11 @@ export default createGlobalStyle`
   }
   body, input, button {
     font: 16px Roboto, sans-serif;
+    color: #FFF;
   }
   #root {
-    max-width: 960px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 40px 20px;
   }
   button {
     cursor: pointer;
