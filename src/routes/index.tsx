@@ -8,7 +8,7 @@ import Login from '../pages/Login';
 const routes: React.FC = () => (
   <Switch>
     <Route path="/" exact component={Landing} />
-    <Route path="/movie/" component={MovieInfo} />
+    <Route path="/movie/:id" component={MovieInfo} />
     <Route path="/login" component={Login} />
   </Switch>
 );
