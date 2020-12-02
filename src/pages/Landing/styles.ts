@@ -4,6 +4,55 @@ import { shade } from 'polished';
 export const Container = styled.div`
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+
+  padding: 20px;
+`;
+
+export const Movie = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  text-align: center;
+  margin: 15px;
+  border-radius: 10px;
+
+  background: #2c414e;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+
+  a {
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.2s;
+  }
+
+  &:hover {
+    transform: translateY(-20px);
+  }
+
+  div {
+    max-width: 250px;
+    height: 80px;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  h3 {
+    padding-top: 10px;
+    font-size: 22px;
+  }
+
+  span {
+    padding-top: 10px;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  img {
+    width: 270px;
+    border-radius: 10px;
+  }
 `;
 
 export const Banner = styled.div`
@@ -65,16 +114,5 @@ export const Searcher = styled.div`
     height: 49px;
     border: 0;
     margin-left: 15px;
-  }
-`;
-
-export const Movies = styled.div`
-  display: flex;
-  padding-top: 50px;
-
-  img {
-    width: 270px;
-    height: 380px;
-    border-radius: 5px;
   }
 `;
