@@ -97,15 +97,6 @@ const Landing: React.FC = () => {
               </Movie>
             );
           })}
-        <button
-          type="button"
-          onClick={() => {
-            setPage('2');
-            console.log(page);
-          }}
-        >
-          Proxima
-        </button>
       </Container>
     </>
   );
