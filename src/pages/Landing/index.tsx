@@ -3,7 +3,9 @@ import { FiSearch } from 'react-icons/fi';
 
 import { Link } from 'react-router-dom';
 
+import { setSourceMapRange } from 'typescript';
 import api from '../../services/api';
+import logoImg from '../../assets/logo.png';
 // import Header from '../../components/Header';
 
 import { Container, Header, Movie, MovieInfo } from './styles';
@@ -21,13 +23,13 @@ export interface Movie {
 const Landing: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [queryValue, setQueryValue] = useState('');
-  // const [page, setPage] = useState('1');
+  const [page, setPage] = useState('1');
 
   const imgAPI = 'https://image.tmdb.org/t/p/w1280';
 
   useEffect(() => {
     getMovies();
-  }, []);
+  }, [page]);
 
   async function getMovies() {
     try {
@@ -60,7 +62,7 @@ const Landing: React.FC = () => {
     <>
       <Header>
         <div>
-          <h3>Movies2U</h3>
+          <img src={logoImg} alt="logo" />
         </div>
         <form onSubmit={handleOnSubmit}>
           <input
@@ -88,6 +90,15 @@ const Landing: React.FC = () => {
               </Movie>
             );
           })}
+        <button
+          type="button"
+          onClick={() => {
+            setPage('2');
+            console.log(page);
+          }}
+        >
+          Proxima
+        </button>
       </Container>
     </>
   );

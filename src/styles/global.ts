@@ -8,7 +8,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    background: #0D1317;
+    background: #D3DADE;
   }
   body, input, button {
     font: 16px Roboto, sans-serif;
