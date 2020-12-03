@@ -1,5 +1,9 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { shade } from 'polished';
+
+interface MovieProps {
+  isFocused: boolean;
+}
 
 export const Container = styled.div`
   display: flex;
@@ -56,7 +60,7 @@ export const Header = styled.div`
   }
 `;
 
-export const Movie = styled.div`
+export const Movie = styled.div<MovieProps>`
   background: #34312d;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
   flex-direction: column;
@@ -66,6 +70,12 @@ export const Movie = styled.div`
   text-align: center;
   margin: 15px;
   border-radius: 10px;
+
+  ${(props) =>
+    props.isFocused &&
+    css`
+      border-color: #5197e1;
+    `}
 
   a {
     text-decoration: none;

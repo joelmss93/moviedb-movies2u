@@ -24,6 +24,7 @@ const Landing: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [queryValue, setQueryValue] = useState('');
   const [page, setPage] = useState('1');
+  const [isFocused, setIsFocused] = useState(false);
 
   const imgAPI = 'https://image.tmdb.org/t/p/w1280';
 
@@ -79,7 +80,13 @@ const Landing: React.FC = () => {
         {movies.length > 0 &&
           movies.map((movie) => {
             return (
-              <Movie key={movie.id}>
+              <Movie
+                onFocus={() => {
+                  setIsFocused(true);
+                }}
+                isFocused={isFocused}
+                key={movie.id}
+              >
                 <Link key={movie.id} to={`/movie/${movie.id}`}>
                   <img src={imgAPI + movie.poster_path} alt={movie.title} />
                   <div>
