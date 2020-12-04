@@ -56,9 +56,11 @@ const Landing: React.FC = () => {
   return (
     <>
       <Header>
-        <div>
-          <img src={logoImg} alt="logo" />
-        </div>
+        <Link to="/">
+          <div>
+            <img src={logoImg} alt="logo" />
+          </div>
+        </Link>
         <form onSubmit={handleOnSubmit}>
           <input
             type="text"
