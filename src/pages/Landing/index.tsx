@@ -45,7 +45,7 @@ const Landing: React.FC = () => {
   }
 
   // const handleOnSubmit = useCallback(() => {
-  const handleOnSubmit = async (e: { preventDefault: () => void }) => {
+  async function handleOnSubmit() {
     try {
       const response = await api.get(
         `/search/movie?&api_key=0b4278fe0c2b8faca2c1d47d3bfd174a&query=${queryValue}`,
@@ -56,7 +56,11 @@ const Landing: React.FC = () => {
     } catch (error) {
       return <div>Nothing found</div>;
     }
-  };
+  }
+
+  // const handleOnChange = (e: { preventDefault: () => void }) => {
+  //   setQueryValue(e.);
+  // };
   // }, []);
 
   return (
@@ -70,8 +74,10 @@ const Landing: React.FC = () => {
             type="text"
             placeholder="Buscar filmes"
             value={queryValue}
-            onChange={(e) => {
+            // onChange={handleOnChange}
+            onChange={async (e) => {
               setQueryValue(e.target.value);
+              handleOnSubmit();
             }}
           />
         </form>
