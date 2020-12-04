@@ -1,12 +1,9 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { FiSearch } from 'react-icons/fi';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
-import { setSourceMapRange } from 'typescript';
 import api from '../../services/api';
 import logoImg from '../../assets/logo.png';
-// import Header from '../../components/Header';
 
 import { Container, Header, Movie, MovieInfo } from './styles';
 
@@ -35,7 +32,7 @@ const Landing: React.FC = () => {
   async function getMovies() {
     try {
       const response = await api.get(
-        `/discover/movie?sort_by=popularity.desc&api_key=0b4278fe0c2b8faca2c1d47d3bfd174a&page=1`,
+        `/discover/movie?sort_by=popularity.desc&api_key=0b4278fe0c2b8faca2c1d47d3bfd174a&page=${page}`,
       );
 
       setMovies(response.data.results);
@@ -51,7 +48,6 @@ const Landing: React.FC = () => {
       );
 
       setMovies(response.data.results);
-      // setQueryValue('');
     } catch (error) {
       return <div>Nothing found</div>;
     }
