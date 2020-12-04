@@ -44,7 +44,6 @@ const Landing: React.FC = () => {
     }
   }
 
-  // const handleOnSubmit = useCallback(() => {
   async function handleOnSubmit() {
     try {
       const response = await api.get(
@@ -52,16 +51,11 @@ const Landing: React.FC = () => {
       );
 
       setMovies(response.data.results);
-      setQueryValue('');
+      // setQueryValue('');
     } catch (error) {
       return <div>Nothing found</div>;
     }
   }
-
-  // const handleOnChange = (e: { preventDefault: () => void }) => {
-  //   setQueryValue(e.);
-  // };
-  // }, []);
 
   return (
     <>
@@ -74,7 +68,6 @@ const Landing: React.FC = () => {
             type="text"
             placeholder="Buscar filmes"
             value={queryValue}
-            // onChange={handleOnChange}
             onChange={async (e) => {
               setQueryValue(e.target.value);
               handleOnSubmit();
